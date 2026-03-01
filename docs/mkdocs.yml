@@ -1,0 +1,62 @@
+site_name: Huginn Intelligence Console
+site_description: Institutional wallet intelligence documentation for Huginn.
+site_url: https://docs.huginn.console
+
+docs_dir: .
+site_dir: ../site
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: slate
+      primary: black
+      accent: cyan
+  font:
+    text: IBM Plex Sans
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.highlight
+    - search.share
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - Home: index.md
+  - Overview: overview.md
+  - Features: features.md
+  - Wallet Analytics: wallet-analytics.md
+  - Tracking Engine: tracking-engine.md
+  - Scoring System: scoring-system.md
+  - Risk Metrics: risk-metrics.md
+  - Security: security.md
+  - API: api.md
+  - Architecture: architecture.md
+  - Deployment: deployment.md
+  - Configuration: configuration.md
+  - Roadmap: roadmap.md
+  - Changelog: changelog.md
+  - FAQ: faq.md
