@@ -1,0 +1,1989 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Institutional wallet intelligence documentation for Huginn.">
+      
+      
+      
+        <link rel="canonical" href="https://docs.huginn.console/configuration/">
+      
+      
+        <link rel="prev" href="../deployment/">
+      
+      
+        <link rel="next" href="../roadmap/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Configuration - Huginn Intelligence Console</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Huginn Intelligence Console" class="md-header__button md-logo" aria-label="Huginn Intelligence Console" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Huginn Intelligence Console
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../overview/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Overview
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../features/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Features
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../wallet-analytics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Wallet Analytics
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../tracking-engine/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tracking Engine
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../scoring-system/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Scoring System
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../risk-metrics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Risk Metrics
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../security/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Security
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../architecture/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Architecture
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../deployment/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Deployment
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Configuration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../changelog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../faq/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Huginn Intelligence Console" class="md-nav__button md-logo" aria-label="Huginn Intelligence Console" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Huginn Intelligence Console
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wallet-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wallet Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tracking-engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tracking Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scoring-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scoring System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../risk-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-bot-and-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Bot and Identity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solana-and-settlement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solana and Settlement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plans-pricing-and-billing-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plans, Pricing, and Billing Jobs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evm-engine-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EVM Engine Core
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wallet-analytics-backfill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wallet Analytics Backfill
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conviction-and-signal-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conviction and Signal Tuning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quicknode-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QuickNode Streams
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-network-evm-rpc-and-ws-overrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-Network EVM RPC and WS Overrides
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-hygiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Hygiene
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-bot-and-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Bot and Identity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solana-and-settlement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solana and Settlement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plans-pricing-and-billing-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plans, Pricing, and Billing Jobs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evm-engine-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EVM Engine Core
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wallet-analytics-backfill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wallet Analytics Backfill
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conviction-and-signal-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conviction and Signal Tuning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quicknode-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QuickNode Streams
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-network-evm-rpc-and-ws-overrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-Network EVM RPC and WS Overrides
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-hygiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Hygiene
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h1>
+<h2 id="configuration-model">Configuration Model<a class="headerlink" href="#configuration-model" title="Permanent link">&para;</a></h2>
+<p>Huginn uses environment-variable configuration for runtime wiring, security boundaries, and feature controls.</p>
+<h2 id="core-bot-and-identity">Core Bot and Identity<a class="headerlink" href="#core-bot-and-identity" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BOT_TOKEN</code></td>
+<td>Yes</td>
+<td>None</td>
+<td>Telegram bot token used to start the console.</td>
+</tr>
+<tr>
+<td><code>BOT_USERNAME</code></td>
+<td>Recommended</td>
+<td>Empty</td>
+<td>Public Telegram username for deep links and bot URLs.</td>
+</tr>
+<tr>
+<td><code>HUGINN_BOT_USERNAME</code></td>
+<td>Optional</td>
+<td>Falls back to <code>BOT_USERNAME</code></td>
+<td>Explicit override for generated Huginn bot URLs in outbound links.</td>
+</tr>
+<tr>
+<td><code>ENVIRONMENT</code></td>
+<td>No</td>
+<td><code>dev</code></td>
+<td>Runtime environment label for operational context.</td>
+</tr>
+<tr>
+<td><code>ADMIN_USER_IDS</code></td>
+<td>No</td>
+<td>Empty</td>
+<td>Comma-separated Telegram user IDs with admin privileges.</td>
+</tr>
+<tr>
+<td><code>HUGINN_WHITELIST_IDS</code></td>
+<td>No</td>
+<td>Empty</td>
+<td>Comma-separated Telegram IDs with whitelist entitlements.</td>
+</tr>
+<tr>
+<td><code>WHITELIST_USER_IDS</code></td>
+<td>No</td>
+<td>Empty</td>
+<td>Legacy alias for <code>HUGINN_WHITELIST_IDS</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="database">Database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DATABASE_URL</code></td>
+<td>Yes for production</td>
+<td>None</td>
+<td>PostgreSQL DSN for persistent repositories and jobs.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="solana-and-settlement">Solana and Settlement<a class="headerlink" href="#solana-and-settlement" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SOLANA_RPC_URL</code></td>
+<td>Yes</td>
+<td><code>https://api.mainnet-beta.solana.com</code></td>
+<td>Primary Solana HTTP RPC endpoint.</td>
+</tr>
+<tr>
+<td><code>HELIUS_API_KEY</code></td>
+<td>Optional</td>
+<td>Empty</td>
+<td>Helius key used when constructing provider URLs.</td>
+</tr>
+<tr>
+<td><code>HELIUS_RPC_URL</code></td>
+<td>Optional</td>
+<td>Empty</td>
+<td>Full Helius RPC URL override; takes precedence over <code>SOLANA_RPC_URL</code>.</td>
+</tr>
+<tr>
+<td><code>DEPOSIT_SOL_ADDRESS</code></td>
+<td>Required for billing flows</td>
+<td>None</td>
+<td>Deposit address shown in invoice/payment screens.</td>
+</tr>
+<tr>
+<td><code>SOLANA_INVOICE_MASTER_MNEMONIC</code></td>
+<td>Required for on-chain invoice derivation</td>
+<td>None</td>
+<td>Master mnemonic for derived deposit wallets.</td>
+</tr>
+<tr>
+<td><code>SOLANA_TREASURY_PUBKEY</code></td>
+<td>Required for settlement wiring</td>
+<td>None</td>
+<td>Treasury destination public key for settlement operations.</td>
+</tr>
+<tr>
+<td><code>SOLANA_TREASURY_MNEMONIC</code></td>
+<td>Required for settlement wiring</td>
+<td>None</td>
+<td>Treasury mnemonic for settlement signing context.</td>
+</tr>
+<tr>
+<td><code>SOLANA_CONFIRMATION_THRESHOLD</code></td>
+<td>No</td>
+<td><code>1</code></td>
+<td>Required Solana confirmation count for payment settlement.</td>
+</tr>
+<tr>
+<td><code>CONFIRM_SOLANA</code></td>
+<td>No</td>
+<td>Empty</td>
+<td>Legacy alias for <code>SOLANA_CONFIRMATION_THRESHOLD</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="plans-pricing-and-billing-jobs">Plans, Pricing, and Billing Jobs<a class="headerlink" href="#plans-pricing-and-billing-jobs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PLAN_FREE_LIMIT</code></td>
+<td>No</td>
+<td><code>75</code></td>
+<td>Free-plan tracking cap.</td>
+</tr>
+<tr>
+<td><code>PLAN_MUNINN_LIMIT</code></td>
+<td>No</td>
+<td><code>350</code></td>
+<td>Muninn-plan tracking cap.</td>
+</tr>
+<tr>
+<td><code>PLAN_ALLFATHER_LIMIT</code></td>
+<td>No</td>
+<td><code>10000</code></td>
+<td>Allfather-plan tracking cap.</td>
+</tr>
+<tr>
+<td><code>MUNINN_MONTHLY_PRICE_CENTS</code></td>
+<td>No</td>
+<td><code>2000</code></td>
+<td>Muninn monthly price in USD cents.</td>
+</tr>
+<tr>
+<td><code>PRICE_MUNINN_MONTHLY_USD_CENTS</code></td>
+<td>No</td>
+<td>Empty</td>
+<td>Legacy alias for Muninn monthly price.</td>
+</tr>
+<tr>
+<td><code>ALLFATHER_MONTHLY_PRICE_CENTS</code></td>
+<td>No</td>
+<td><code>5000</code></td>
+<td>Allfather monthly price in USD cents.</td>
+</tr>
+<tr>
+<td><code>PRICE_ALLFATHER_MONTHLY_USD_CENTS</code></td>
+<td>No</td>
+<td>Empty</td>
+<td>Legacy alias for Allfather monthly price.</td>
+</tr>
+<tr>
+<td><code>ANNUAL_DISCOUNT_PERCENT</code></td>
+<td>No</td>
+<td><code>15</code></td>
+<td>Annual billing discount percentage.</td>
+</tr>
+<tr>
+<td><code>INVOICE_TTL_MINUTES</code></td>
+<td>No</td>
+<td><code>60</code></td>
+<td>Lifetime of open invoices before expiry.</td>
+</tr>
+<tr>
+<td><code>EXPIRY_JOB_INTERVAL_SECONDS</code></td>
+<td>No</td>
+<td><code>60</code></td>
+<td>Invoice/subscription expiry job poll interval.</td>
+</tr>
+<tr>
+<td><code>PAYMENT_POLL_INTERVAL_SECONDS</code></td>
+<td>No</td>
+<td><code>30</code></td>
+<td>Payment verification polling interval.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="evm-engine-core">EVM Engine Core<a class="headerlink" href="#evm-engine-core" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EVM_NETWORKS</code></td>
+<td>No</td>
+<td><code>eth,arb,op,base,bsc,polygon,avax</code></td>
+<td>Enabled EVM networks list.</td>
+</tr>
+<tr>
+<td><code>EVM_DEFAULT_NETWORK</code></td>
+<td>No</td>
+<td><code>eth</code></td>
+<td>Default network key for fallback RPC resolution.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_URL</code></td>
+<td>Optional</td>
+<td>Empty</td>
+<td>Legacy global EVM RPC URL fallback.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC</code></td>
+<td>Optional</td>
+<td>Empty</td>
+<td>Legacy alias for <code>EVM_RPC_URL</code>.</td>
+</tr>
+<tr>
+<td><code>EVM_WS_URL</code></td>
+<td>Optional</td>
+<td>Empty</td>
+<td>Legacy global EVM websocket URL.</td>
+</tr>
+<tr>
+<td><code>EVM_WS</code></td>
+<td>Optional</td>
+<td>Empty</td>
+<td>Legacy alias for <code>EVM_WS_URL</code>.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_URLS_JSON</code></td>
+<td>Recommended for multi-network</td>
+<td>Empty</td>
+<td>JSON map of network ID to RPC URL.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_URLS_CSV</code></td>
+<td>Optional</td>
+<td>Empty</td>
+<td>Comma list of RPC URLs aligned with <code>EVM_NETWORKS</code>.</td>
+</tr>
+<tr>
+<td><code>EVM_CONFIRMATIONS</code></td>
+<td>No</td>
+<td><code>2</code></td>
+<td>Confirmations required for EVM event confidence.</td>
+</tr>
+<tr>
+<td><code>EVM_POLL_INTERVAL</code></td>
+<td>No</td>
+<td><code>2.0</code></td>
+<td>Polling loop interval in seconds.</td>
+</tr>
+<tr>
+<td><code>EVM_WALLET_REFRESH_INTERVAL</code></td>
+<td>No</td>
+<td><code>30.0</code></td>
+<td>Wallet-set refresh interval for EVM engine.</td>
+</tr>
+<tr>
+<td><code>EVM_WALLET_TOPIC_CHUNK</code></td>
+<td>No</td>
+<td><code>80</code></td>
+<td>Chunk size for topic-filter wallet lists.</td>
+</tr>
+<tr>
+<td><code>EVM_MAX_TXS_SCAN_PER_BLOCK</code></td>
+<td>No</td>
+<td><code>8000</code></td>
+<td>Max transactions scanned per block in polling fallback.</td>
+</tr>
+<tr>
+<td><code>EVM_MIN_AMOUNT_HUMAN</code></td>
+<td>No</td>
+<td><code>1e-18</code></td>
+<td>Minimum human-readable transfer amount threshold.</td>
+</tr>
+<tr>
+<td><code>EVM_STREAMS_STALE_SECONDS</code></td>
+<td>No</td>
+<td><code>20</code></td>
+<td>Staleness threshold for streams health checks.</td>
+</tr>
+<tr>
+<td><code>EVM_ENABLE_POLLING_FALLBACK</code></td>
+<td>No</td>
+<td><code>1</code></td>
+<td>Enables fallback polling when streams are unhealthy.</td>
+</tr>
+<tr>
+<td><code>EVM_SEEN_MAX</code></td>
+<td>No</td>
+<td><code>250000</code></td>
+<td>Max dedupe set size for seen EVM transactions.</td>
+</tr>
+<tr>
+<td><code>EVM_INFLIGHT_MAX</code></td>
+<td>No</td>
+<td><code>25000</code></td>
+<td>Max inflight processing set size for EVM engine.</td>
+</tr>
+<tr>
+<td><code>EVM_METRIC_SNAPSHOT_EVERY</code></td>
+<td>No</td>
+<td><code>60</code></td>
+<td>Metrics snapshot interval in seconds.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wallet-analytics-backfill">Wallet Analytics Backfill<a class="headerlink" href="#wallet-analytics-backfill" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WALLET_BACKFILL_DAYS</code></td>
+<td>No</td>
+<td><code>30</code></td>
+<td>Lookback window for historical wallet reconstruction.</td>
+</tr>
+<tr>
+<td><code>WALLET_BACKFILL_MAX_SIGNATURES</code></td>
+<td>No</td>
+<td><code>1200</code></td>
+<td>Signature cap for Solana signature scan path.</td>
+</tr>
+<tr>
+<td><code>WALLET_BACKFILL_MAX_TRANSACTIONS</code></td>
+<td>No</td>
+<td><code>800</code></td>
+<td>Transaction parse cap per backfill run.</td>
+</tr>
+<tr>
+<td><code>WALLET_BACKFILL_REFRESH_SECONDS</code></td>
+<td>No</td>
+<td><code>21600</code></td>
+<td>Cooldown between non-forced backfill runs per wallet.</td>
+</tr>
+<tr>
+<td><code>WALLET_BACKFILL_MAX_SECONDS</code></td>
+<td>No</td>
+<td><code>20</code></td>
+<td>Time budget for primary backfill pass.</td>
+</tr>
+<tr>
+<td><code>WALLET_BACKFILL_EVM_BLOCK_CHUNK</code></td>
+<td>No</td>
+<td><code>4000</code></td>
+<td>Initial EVM block chunk size for backfill scans.</td>
+</tr>
+<tr>
+<td><code>WALLET_BACKFILL_EVM_MIN_BLOCK_CHUNK</code></td>
+<td>No</td>
+<td><code>250</code></td>
+<td>Minimum EVM block chunk size under adaptive scanning.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="conviction-and-signal-tuning">Conviction and Signal Tuning<a class="headerlink" href="#conviction-and-signal-tuning" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CONVICTION_EARLY_MAX_AGE_MINUTES</code></td>
+<td>No</td>
+<td><code>20</code></td>
+<td>Max age for early-conviction classification.</td>
+</tr>
+<tr>
+<td><code>CONVICTION_EARLY_MAX_AGE_HOURS</code></td>
+<td>No</td>
+<td>Empty</td>
+<td>Legacy alias for early-conviction age threshold.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="quicknode-streams">QuickNode Streams<a class="headerlink" href="#quicknode-streams" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>QN_STREAMS_ENABLE</code></td>
+<td>No</td>
+<td><code>1</code></td>
+<td>Enables QuickNode streams webhook ingestion.</td>
+</tr>
+<tr>
+<td><code>QN_STREAMS_HOST</code></td>
+<td>No</td>
+<td><code>0.0.0.0</code></td>
+<td>Bind host for webhook receiver.</td>
+</tr>
+<tr>
+<td><code>QN_STREAMS_PORT</code></td>
+<td>No</td>
+<td><code>3000</code></td>
+<td>Bind port for webhook receiver.</td>
+</tr>
+<tr>
+<td><code>QN_STREAMS_PATH</code></td>
+<td>No</td>
+<td><code>/webhook</code></td>
+<td>Path for QuickNode stream delivery.</td>
+</tr>
+<tr>
+<td><code>QN_STREAMS_SECURITY_TOKEN</code></td>
+<td>Recommended when streams enabled</td>
+<td>Empty</td>
+<td>HMAC secret for webhook signature validation.</td>
+</tr>
+<tr>
+<td><code>QN_API_KEY</code></td>
+<td>Optional</td>
+<td>Empty</td>
+<td>QuickNode API key for stream filter auto-sync APIs.</td>
+</tr>
+<tr>
+<td><code>QN_STREAM_IDS_JSON</code></td>
+<td>Optional</td>
+<td>Empty</td>
+<td>JSON map of network ID to stream ID.</td>
+</tr>
+<tr>
+<td><code>QN_STREAM_IDS_JSON_PATH</code></td>
+<td>Optional</td>
+<td><code>./qn_stream_ids.json</code></td>
+<td>File path fallback for stream ID mapping.</td>
+</tr>
+<tr>
+<td><code>QN_STREAMS_SYNC_ENABLE</code></td>
+<td>No</td>
+<td><code>1</code></td>
+<td>Enables periodic stream filter auto-sync.</td>
+</tr>
+<tr>
+<td><code>QN_STREAMS_SYNC_INTERVAL</code></td>
+<td>No</td>
+<td><code>15</code></td>
+<td>Stream filter sync interval in seconds.</td>
+</tr>
+<tr>
+<td><code>QN_STREAMS_SYNC_MAX_ADDRS</code></td>
+<td>No</td>
+<td><code>1500</code></td>
+<td>Max addresses embedded in stream filter script.</td>
+</tr>
+<tr>
+<td><code>QN_STREAMS_MAX_SKEW_SECONDS</code></td>
+<td>No</td>
+<td><code>300</code></td>
+<td>Maximum allowed webhook timestamp skew.</td>
+</tr>
+<tr>
+<td><code>QN_STREAMS_NONCE_CACHE_SIZE</code></td>
+<td>No</td>
+<td><code>10000</code></td>
+<td>Nonce replay-protection cache size.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="per-network-evm-rpc-and-ws-overrides">Per-Network EVM RPC and WS Overrides<a class="headerlink" href="#per-network-evm-rpc-and-ws-overrides" title="Permanent link">&para;</a></h2>
+<p>All variables below are optional and default to empty.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EVM_RPC_ETH</code>, <code>ETH_RPC</code>, <code>EVM_WS_ETH</code></td>
+<td>Ethereum mainnet overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_BASE</code>, <code>BASE_RPC</code>, <code>EVM_WS_BASE</code></td>
+<td>Base network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_ARB</code>, <code>ARB_RPC</code>, <code>EVM_WS_ARB</code></td>
+<td>Arbitrum network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_BSC</code>, <code>BSC_RPC</code>, <code>EVM_WS_BSC</code></td>
+<td>BNB Chain overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_OP</code>, <code>EVM_WS_OP</code></td>
+<td>Optimism network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_POLYGON</code>, <code>EVM_WS_POLYGON</code></td>
+<td>Polygon network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_AVAX</code>, <code>EVM_WS_AVAX</code></td>
+<td>Avalanche network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_FTM</code>, <code>EVM_WS_FTM</code></td>
+<td>Fantom network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_GNOSIS</code>, <code>EVM_WS_GNOSIS</code></td>
+<td>Gnosis network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_LINEA</code>, <code>EVM_WS_LINEA</code></td>
+<td>Linea network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_SCROLL</code>, <code>EVM_WS_SCROLL</code></td>
+<td>Scroll network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_ZKSYNC</code>, <code>EVM_WS_ZKSYNC</code></td>
+<td>zkSync network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_ZKEVM</code>, <code>EVM_WS_ZKEVM</code></td>
+<td>Polygon zkEVM overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_BLAST</code>, <code>EVM_WS_BLAST</code></td>
+<td>Blast network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_MANTLE</code>, <code>EVM_WS_MANTLE</code></td>
+<td>Mantle network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_MODE</code>, <code>EVM_WS_MODE</code></td>
+<td>Mode network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_ZORA</code>, <code>EVM_WS_ZORA</code></td>
+<td>Zora network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_CELO</code>, <code>EVM_WS_CELO</code></td>
+<td>Celo network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_CRONOS</code>, <code>EVM_WS_CRONOS</code></td>
+<td>Cronos network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_MOONBEAM</code>, <code>EVM_WS_MOONBEAM</code></td>
+<td>Moonbeam network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_MOONRIVER</code>, <code>EVM_WS_MOONRIVER</code></td>
+<td>Moonriver network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_AURORA</code>, <code>EVM_WS_AURORA</code></td>
+<td>Aurora network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_METIS</code>, <code>EVM_WS_METIS</code></td>
+<td>Metis network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_KAVA</code>, <code>EVM_WS_KAVA</code></td>
+<td>Kava network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_HARMONY</code>, <code>EVM_WS_HARMONY</code></td>
+<td>Harmony network overrides.</td>
+</tr>
+<tr>
+<td><code>EVM_RPC_OPBNB</code>, <code>EVM_WS_OPBNB</code></td>
+<td>opBNB network overrides.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration-hygiene">Configuration Hygiene<a class="headerlink" href="#configuration-hygiene" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Keep production secrets out of source control.</li>
+<li>Prefer explicit network-specific RPC settings over legacy global aliases.</li>
+<li>Use legacy aliases only during migration windows.</li>
+<li>Validate configuration in staging before expanding wallet coverage.</li>
+</ul>
+<h2 id="related-reading">Related Reading<a class="headerlink" href="#related-reading" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../deployment/">Deployment</a></li>
+<li><a href="../security/">Security</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
