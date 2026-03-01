@@ -56,6 +56,8 @@
       
     
     
+      <link rel="stylesheet" href="./assets/stylesheets/extra.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
@@ -72,7 +74,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -128,7 +130,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
     
   
 </form>
@@ -522,6 +538,17 @@
     <span class="md-ellipsis">
       
         Value Proposition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Snapshot
       
     </span>
   </a>
@@ -981,6 +1008,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#system-snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Snapshot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-huginn-is-different" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1029,7 +1067,31 @@
                   
 
 <h1 id="huginn-intelligence-console">Huginn Intelligence Console<a class="headerlink" href="#huginn-intelligence-console" title="Permanent link">&para;</a></h1>
-<p>Huginn Intelligence Console is wallet intelligence infrastructure for professional on-chain operators. It delivers structured, decision-grade analytics on wallet behavior, trade quality, and risk posture across high-velocity markets.</p>
+<div class="hug-hero">
+  <p class="hug-eyebrow">Wallet Intelligence Documentation</p>
+  <h1 class="hug-title">Decision-grade wallet analytics for high-velocity markets</h1>
+  <p class="hug-subtitle">
+    Huginn Intelligence Console converts noisy on-chain activity into operational signals for performance, risk, and behavior profiling.
+  </p>
+  <div class="hug-grid">
+    <div class="hug-kpi">
+      <strong>30-Day</strong>
+      <span>Historical Backfill</span>
+      <p>Fast onboarding with deep-scan fallback for noisy wallets.</p>
+    </div>
+    <div class="hug-kpi">
+      <strong>Solana-First</strong>
+      <span>Production Core</span>
+      <p>Program-aware parsing with Token-2022 handling and durable metrics.</p>
+    </div>
+    <div class="hug-kpi">
+      <strong>Read-Only</strong>
+      <span>Operational Posture</span>
+      <p>No tracked-wallet private keys required for intelligence workflows.</p>
+    </div>
+  </div>
+</div>
+
 <h2 id="positioning">Positioning<a class="headerlink" href="#positioning" title="Permanent link">&para;</a></h2>
 <p>Huginn is not a custody product and not an execution venue. It is a read-only intelligence layer that transforms raw blockchain activity into interpretable performance and risk signals.</p>
 <h2 id="problem-statement">Problem Statement<a class="headerlink" href="#problem-statement" title="Permanent link">&para;</a></h2>
@@ -1050,6 +1112,18 @@
 <li>asynchronous ingestion architecture for low-latency, high-throughput tracking</li>
 <li>database-backed state with operational safeguards</li>
 </ul>
+<h2 id="system-snapshot">System Snapshot<a class="headerlink" href="#system-snapshot" title="Permanent link">&para;</a></h2>
+<div class="hug-diagram">
+<div class="highlight"><pre><span></span><code>flowchart LR
+    W[Tracked Wallet Set] --&gt; I[Ingestion Watchers]
+    I --&gt; P[Parser and Normalization]
+    P --&gt; A[Analytics and Scoring]
+    A --&gt; D[Dashboard and Telegram Output]
+    A --&gt; R[Risk and Monitoring Views]
+    I -. fallback .-&gt; B[Backfill and Deep Scan]
+    B --&gt; A
+</code></pre></div>
+</div>
 <h2 id="why-huginn-is-different">Why Huginn Is Different<a class="headerlink" href="#why-huginn-is-different" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Analytics-first model:</strong> Dashboard metrics are derived from normalized swap events, not superficial transfer counts.</li>
@@ -1062,21 +1136,38 @@
 <li>Telegram console: <a href="https://t.me/HuginnTracker_bot">@HuginnTracker_bot</a></li>
 </ul>
 <h2 id="documentation-map">Documentation Map<a class="headerlink" href="#documentation-map" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="overview/">Platform Overview</a></li>
-<li><a href="features/">Feature Catalog</a></li>
-<li><a href="wallet-analytics/">Wallet Analytics Methodology</a></li>
-<li><a href="tracking-engine/">Tracking Engine</a></li>
-<li><a href="scoring-system/">Scoring System</a></li>
-<li><a href="risk-metrics/">Risk Metrics</a></li>
-<li><a href="architecture/">Architecture</a></li>
-<li><a href="security/">Security Model</a></li>
-<li><a href="deployment/">Deployment</a></li>
-<li><a href="configuration/">Configuration</a></li>
-<li><a href="roadmap/">Roadmap</a></li>
-<li><a href="changelog/">Changelog</a></li>
-<li><a href="faq/">FAQ</a></li>
-</ul>
+<div class="hug-link-grid">
+  <div class="hug-link-card">
+    <h3>Platform</h3>
+    <p>Product scope, personas, and current production focus.</p>
+    <a href="overview/">Open Overview</a>
+  </div>
+  <div class="hug-link-card">
+    <h3>Feature Surface</h3>
+    <p>Capabilities, metrics, and data-quality mechanics.</p>
+    <a href="features/">Open Features</a>
+  </div>
+  <div class="hug-link-card">
+    <h3>Analytics Methodology</h3>
+    <p>Cost basis logic, realized/unrealized PnL, and confidence boundaries.</p>
+    <a href="wallet-analytics/">Open Wallet Analytics</a>
+  </div>
+  <div class="hug-link-card">
+    <h3>Engine and Architecture</h3>
+    <p>Ingestion, parsing, update lifecycle, and reliability controls.</p>
+    <a href="architecture/">Open Architecture</a>
+  </div>
+  <div class="hug-link-card">
+    <h3>Operations</h3>
+    <p>Deployment, configuration, and security posture for runtime teams.</p>
+    <a href="deployment/">Open Deployment</a>
+  </div>
+  <div class="hug-link-card">
+    <h3>Roadmap and Change Log</h3>
+    <p>Release history and directional planning for upcoming phases.</p>
+    <a href="roadmap/">Open Roadmap</a>
+  </div>
+</div>
 
 
 
@@ -1139,6 +1230,10 @@
     
     
       <script src="./assets/javascripts/bundle.16f8adc2.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="./assets/javascripts/mermaid-init.js"></script>
       
     
   </body>

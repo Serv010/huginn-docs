@@ -58,6 +58,8 @@
       
     
     
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
@@ -74,7 +76,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -130,7 +132,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
     
   
 </form>
@@ -1130,44 +1146,58 @@
 <li><strong>Integration Layer:</strong> RPC providers, market metadata providers, stream/webhook providers</li>
 </ul>
 <h2 id="system-flow">System Flow<a class="headerlink" href="#system-flow" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>[Tracked Wallet Set]
-        |
-        v
-[Chain Ingestion]
-  - Solana logs stream (+ optional poll fallback)
-  - EVM streams webhook (+ health-gated poll fallback)
-        |
-        v
-[Transaction Parser]
-  - Normalize swaps/transfers
-  - Token metadata enrichment
-        |
-        v
-[Analytics Engine]
-  - Position state updates
-  - Realized/unrealized PnL
-  - Win/loss quality metrics
-        |
-        +------------------------+
-        |                        |
-        v                        v
-[Alert/Console Output]      [Scoring / Risk Views]
+<div class="highlight"><pre><span></span><code>flowchart LR
+    subgraph Inputs
+      W[Tracked Wallet Set]
+      RP[RPC and Stream Providers]
+    end
+    subgraph Runtime
+      I[Chain Ingestion]
+      P[Parser and Normalization]
+      A[Analytics Engine]
+      S[(Analytics State Cache)]
+      DB[(PostgreSQL)]
+    end
+    subgraph Outputs
+      T[Telegram and Alerts]
+      V[Scoring and Risk Views]
+      H[Operational Telemetry]
+    end
+
+    W --&gt; I
+    RP --&gt; I
+    I --&gt; P --&gt; A
+    A --&gt; S
+    A --&gt; DB
+    S --&gt; V
+    DB --&gt; V
+    A --&gt; T
+    I --&gt; H
+    A --&gt; H
 </code></pre></div>
 <h2 id="event-processing-lifecycle">Event Processing Lifecycle<a class="headerlink" href="#event-processing-lifecycle" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>1. Wallet selector loads currently tracked wallets.
-2. Ingestion watchers collect candidate on-chain activity.
-3. Raw transactions are fetched and parsed.
-4. Valid swap/transfer events are normalized.
-5. Analytics state is updated with dedupe protection.
-6. Downstream consumers (dashboard/internal integrations/webhooks) read derived metrics.
+<div class="highlight"><pre><span></span><code>sequenceDiagram
+    participant Selector as Wallet Selector
+    participant Watcher as Ingestion Watcher
+    participant Parser as Transaction Parser
+    participant Engine as Analytics Engine
+    participant Store as State and Repositories
+    participant Consumers as Dashboard and Integrations
+
+    Selector-&gt;&gt;Watcher: Load tracked wallets
+    Watcher-&gt;&gt;Parser: Fetch candidate transactions
+    Parser-&gt;&gt;Parser: Normalize swap and transfer events
+    Parser-&gt;&gt;Engine: Emit normalized events
+    Engine-&gt;&gt;Store: Apply dedupe + update metrics
+    Store-&gt;&gt;Consumers: Serve derived analytics and risk data
 </code></pre></div>
 <h2 id="solana-data-flow">Solana Data Flow<a class="headerlink" href="#solana-data-flow" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>logsSubscribe shards
-    -&gt; signature queue
-    -&gt; getTransaction
-    -&gt; parse_swap_from_tx
-    -&gt; record_swap_event
-    -&gt; dashboard metrics
+<div class="highlight"><pre><span></span><code>flowchart LR
+    LS[logsSubscribe shards] --&gt; SQ[Signature Queue]
+    SQ --&gt; TX[getTransaction]
+    TX --&gt; PS[parse_swap_from_tx]
+    PS --&gt; RE[record_swap_event]
+    RE --&gt; DM[Dashboard Metrics]
 </code></pre></div>
 <p>Reliability controls:</p>
 <ul>
@@ -1177,25 +1207,27 @@
 <li>heartbeat/metrics snapshots</li>
 </ul>
 <h2 id="evm-data-flow">EVM Data Flow<a class="headerlink" href="#evm-data-flow" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>QuickNode Streams webhook
-    -&gt; signature/timestamp validation
-    -&gt; receipt normalization per network
-    -&gt; swap/transfer extraction
-    -&gt; analytics update
+<div class="highlight"><pre><span></span><code>flowchart LR
+    QN[QuickNode Streams Webhook] --&gt; VAL[Signature and timestamp validation]
+    VAL --&gt; NORM[Receipt normalization per network]
+    NORM --&gt; EXT[Swap and transfer extraction]
+    EXT --&gt; UPD[Analytics update]
 </code></pre></div>
 <p>Fallback path activates when streams become stale/unhealthy:</p>
-<div class="highlight"><pre><span></span><code>health monitor
-    -&gt; polling loop (per configured network)
-    -&gt; transaction fetch and parse
-    -&gt; analytics update
+<div class="highlight"><pre><span></span><code>flowchart LR
+    HM[Health Monitor] --&gt; POLL[Polling loop per configured network]
+    POLL --&gt; FETCH[Transaction fetch and parse]
+    FETCH --&gt; UPD[Analytics update]
 </code></pre></div>
 <h2 id="historical-backfill-flow">Historical Backfill Flow<a class="headerlink" href="#historical-backfill-flow" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>wallet added/opened
-    -&gt; ensure_wallet_month_backfill
-    -&gt; fast path (provider transaction endpoint) when available
-    -&gt; fallback signature scan + transaction fetch
-    -&gt; deep scan if initial pass has no swaps
-    -&gt; analytics state warm-up
+<div class="highlight"><pre><span></span><code>flowchart LR
+    ADDED[Wallet added or opened] --&gt; ENSURE[ensure_wallet_month_backfill]
+    ENSURE --&gt; FAST[Provider transaction fast path]
+    FAST --&gt; DEC{Swaps found?}
+    DEC -- Yes --&gt; WARM[Analytics state warm-up]
+    DEC -- No --&gt; FALLBACK[Fallback signature scan + fetch]
+    FALLBACK --&gt; DS[Deep scan when needed]
+    DS --&gt; WARM
 </code></pre></div>
 <h2 id="data-stores-and-state-boundaries">Data Stores and State Boundaries<a class="headerlink" href="#data-stores-and-state-boundaries" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1278,6 +1310,10 @@
     
     
       <script src="../assets/javascripts/bundle.16f8adc2.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../assets/javascripts/mermaid-init.js"></script>
       
     
   </body>
