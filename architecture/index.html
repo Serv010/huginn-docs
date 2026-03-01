@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://docs.huginn.console/architecture/">
       
       
-        <link rel="prev" href="../api/">
+        <link rel="prev" href="../security/">
       
       
         <link rel="next" href="../deployment/">
@@ -342,25 +342,6 @@
     
   
   Security
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../api/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  API
 
       </a>
     </li>
@@ -720,33 +701,6 @@
     
   
     Security
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../api/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    API
   
 
     
@@ -1236,7 +1190,7 @@
 <p>Huginn architecture prioritizes deterministic analytics, operational resilience, and low-latency intelligence delivery while keeping chain-specific complexity isolated in parsing and ingestion layers.</p>
 <h2 id="component-layers">Component Layers<a class="headerlink" href="#component-layers" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Interface Layer:</strong> Telegram bot flows and external API endpoints</li>
+<li><strong>Interface Layer:</strong> Telegram bot flows and internal analytics services</li>
 <li><strong>Application Layer:</strong> plan enforcement, watchlist management, analytics read services</li>
 <li><strong>Engine Layer:</strong> Solana/EVM ingestion, parsing, detection, enrichment, scoring inputs</li>
 <li><strong>Data Layer:</strong> PostgreSQL repositories plus process-local analytics state caches</li>
@@ -1264,7 +1218,7 @@
         +------------------------+
         |                        |
         v                        v
-[Alert/Console Output]      [API / Scoring / Risk Views]
+[Alert/Console Output]      [Scoring / Risk Views]
 </code></pre></div>
 <h2 id="event-processing-lifecycle">Event Processing Lifecycle<a class="headerlink" href="#event-processing-lifecycle" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>1. Wallet selector loads currently tracked wallets.
@@ -1272,7 +1226,7 @@
 3. Raw transactions are fetched and parsed.
 4. Valid swap/transfer events are normalized.
 5. Analytics state is updated with dedupe protection.
-6. Downstream consumers (dashboard/API/webhooks) read derived metrics.
+6. Downstream consumers (dashboard/internal integrations/webhooks) read derived metrics.
 </code></pre></div>
 <h2 id="solana-data-flow">Solana Data Flow<a class="headerlink" href="#solana-data-flow" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>logsSubscribe shards
@@ -1280,7 +1234,7 @@
     -&gt; getTransaction
     -&gt; parse_swap_from_tx
     -&gt; record_swap_event
-    -&gt; dashboard/API metrics
+    -&gt; dashboard metrics
 </code></pre></div>
 <p>Reliability controls:</p>
 <ul>
